@@ -1,0 +1,26 @@
+apiVersion: vmcontroller.uk8s.ucloud.cn/v1
+kind: VMClaim
+metadata:
+  name: vm-controller
+  namespace: kube-system
+spec:
+  replicas: 1
+  image: uhub.service.ucloud.cn/ucloud/nginx:latest
+  envs:
+    - name: SCALE_UP_RESOURCE_CPU
+      value: "0.8"
+    - name: SCALE_UP_RESOURCE_MEM
+      value: "0.8"
+    - name: SCALE_DOWN_UNNEEDED_TIME
+      value: "10"
+    - name: SCALE_DOWN_UTILIZATION_THRESHOLD
+      value: "0.5"
+    - name: SCALE_DOWN_DELAY_AFTER_ADD
+      value: "10"
+  resources:
+    limits:
+      cpu: 500m
+      memory: 500Mi
+    requests:
+      cpu: 100m
+      memory: 100Mi

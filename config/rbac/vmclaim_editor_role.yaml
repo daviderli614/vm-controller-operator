@@ -1,0 +1,24 @@
+# permissions for end users to edit vmclaims.
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: vmclaim-editor-role
+rules:
+- apiGroups:
+  - vmcontroller.uk8s.ucloud.cn
+  resources:
+  - vmclaims
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - vmcontroller.uk8s.ucloud.cn
+  resources:
+  - vmclaims/status
+  verbs:
+  - get

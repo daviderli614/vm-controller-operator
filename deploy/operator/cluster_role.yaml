@@ -1,0 +1,32 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: vm-controller-operator
+  namespace: kube-system
+rules:
+  - apiGroups:
+      - vmcontroller.uk8s.ucloud.cn
+    resources:
+      - vmclaims
+    verbs:
+      - create
+      - delete
+      - get
+      - list
+      - patch
+      - update
+      - watch
+  - apiGroups:
+      - vmcontroller.uk8s.ucloud.cn
+    resources:
+      - vmclaims/finalizers
+    verbs:
+      - update
+  - apiGroups:
+      - vmcontroller.uk8s.ucloud.cn
+    resources:
+      - vmclaims/status
+    verbs:
+      - get
+      - patch
+      - update

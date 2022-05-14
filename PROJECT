@@ -1,0 +1,19 @@
+domain: uk8s.ucloud.cn
+layout:
+- go.kubebuilder.io/v3
+plugins:
+  manifests.sdk.operatorframework.io/v2: {}
+  scorecard.sdk.operatorframework.io/v2: {}
+projectName: vm-controller-operator
+repo: github.com/daviderli614/vm-controller-operator
+resources:
+- api:
+    crdVersion: v1
+    namespaced: true
+  controller: true
+  domain: uk8s.ucloud.cn
+  group: vmcontroller
+  kind: VMClaim
+  path: github.com/daviderli614/vm-controller-operator/api/v1
+  version: v1
+version: "3"

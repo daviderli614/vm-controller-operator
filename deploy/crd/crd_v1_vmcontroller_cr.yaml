@@ -1,0 +1,30 @@
+apiVersion: vmcontroller.uk8s.ucloud.cn/v1
+kind: VMClaim
+metadata:
+  name: vm-controller
+  namespace: kube-system
+spec:
+  image: uhub.service.ucloud.cn/liyang01/vm-controller:test
+  resources:
+    limits:
+      cpu: 500m
+      memory: 500Mi
+    requests:
+      cpu: 100m
+      memory: 100Mi
+  envs:
+    - name: UCLOUD_UK8S_CLUSTER_ID
+      value: "uk8s-n3kor4cf"
+    - name: VERSION
+      value: "test"
+  scaleUp:
+    scaleUpUtilizationThreshold: "0.85"
+  scaleDown:
+    enabled: true
+    delayAfterAdd: 10m
+    unneededTime: 10m
+    scaleDownUtilizationThreshold: "0.5"
+  balanceSimilarNodeGroups: true
+  skipNodesWithLocalStorage: true
+  expander: "random"
+  scanInterval: 30s

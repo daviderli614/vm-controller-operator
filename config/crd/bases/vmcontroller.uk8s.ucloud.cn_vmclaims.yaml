@@ -1,0 +1,57 @@
+
+---
+apiVersion: apiextensions.k8s.io/v1
+kind: CustomResourceDefinition
+metadata:
+  annotations:
+    controller-gen.kubebuilder.io/version: v0.4.1
+  creationTimestamp: null
+  name: vmclaims.vmcontroller.uk8s.ucloud.cn
+spec:
+  group: vmcontroller.uk8s.ucloud.cn
+  names:
+    kind: VMClaim
+    listKind: VMClaimList
+    plural: vmclaims
+    singular: vmclaim
+  scope: Namespaced
+  versions:
+  - name: v1
+    schema:
+      openAPIV3Schema:
+        description: VMClaim is the Schema for the vmclaims API
+        properties:
+          apiVersion:
+            description: 'APIVersion defines the versioned schema of this representation
+              of an object. Servers should convert recognized schemas to the latest
+              internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources'
+            type: string
+          kind:
+            description: 'Kind is a string value representing the REST resource this
+              object represents. Servers may infer this from the endpoint the client
+              submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds'
+            type: string
+          metadata:
+            type: object
+          spec:
+            description: VMClaimSpec defines the desired state of VMClaim
+            properties:
+              foo:
+                description: Foo is an example field of VMClaim. Edit vmclaim_types.go
+                  to remove/update
+                type: string
+            type: object
+          status:
+            description: VMClaimStatus defines the observed state of VMClaim
+            type: object
+        type: object
+    served: true
+    storage: true
+    subresources:
+      status: {}
+status:
+  acceptedNames:
+    kind: ""
+    plural: ""
+  conditions: []
+  storedVersions: []

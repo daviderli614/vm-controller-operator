@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  labels:
+    k8s-addon: vm-controller.addons.k8s.io
+    k8s-app: vm-controller
+  name: vm-controller
+  namespace: kube-system
